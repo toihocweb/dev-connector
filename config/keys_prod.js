@@ -1,5 +1,5 @@
 module.exports = {
-  mongoURI: process.env.MONGO_URI,
-  secretOrKey: process.env.SECRET_OR_KEY
-  // secretOrKey: "secret"
+  mongoURI:
+    "mongodb+srv://nhat:nguoihung@cluster0-vinqy.mongodb.net/test?retryWrites=true&w=majority",
+  secretOrKey: "secret"
 };
