@@ -1,6 +1,6 @@
 module.exports = {
   mongoURI:
-    "mongodb://admin:admin@mongodb-1940-0.cloudclusters.net:10009/dev-connector?authSource=admin",
+    "mongodb+srv://nhat:nguoihung@cluster0-vinqy.mongodb.net/test?retryWrites=true&w=majority",
   secretOrKey: "secret"
 };
 

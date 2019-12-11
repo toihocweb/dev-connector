@@ -45,5 +45,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`Server running 23 on port ${port}`));
+const server = app.listen(port, () =>
+  console.log(`Server running 23 on port ${port}`)
+);
+const io = require("./socket").init(server);
+io.on("connection", socket => {
+  console.log("Client connected");
+});
