@@ -27,6 +27,7 @@ import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
+import Test from "./components/layout/Test";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -57,6 +58,7 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
+            <Route exact path="/test" component={Test} />
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />

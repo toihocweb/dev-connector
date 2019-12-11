@@ -1,18 +1,45 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import PostForm from './PostForm';
-import PostFeed from './PostFeed';
-import Spinner from '../common/Spinner';
-import { getPosts } from '../../actions/postActions';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import PostForm from "./PostForm";
+import PostFeed from "./PostFeed";
+import Spinner from "../common/Spinner";
+import { getPosts } from "../../actions/postActions";
+import openSocket from "socket.io-client";
 class Posts extends Component {
+  state = {
+    posts: [],
+    loading: false
+  };
+
+  addPost = post => {
+    this.setState(prevState => {
+      const uploadedPosts = [post, ...prevState.posts];
+      return {
+        posts: uploadedPosts
+      };
+    });
+  };
+
+  componentWillReceiveProps = nextProps => {
+    this.setState({
+      posts: nextProps.post.posts,
+      loading: nextProps.post.loading
+    });
+  };
+
   componentDidMount() {
     this.props.getPosts();
+    const socket = openSocket("http://localhost:5000");
+    socket.on("posts", data => {
+      if (data.action === "create") {
+        this.addPost(data.post);
+      }
+    });
   }
 
   render() {
-    const { posts, loading } = this.props.post;
+    const { posts, loading } = this.state;
     let postContent;
 
     if (posts === null || loading) {
@@ -45,4 +72,7 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(
+  mapStateToProps,
+  { getPosts }
+)(Posts);
