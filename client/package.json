@@ -25,5 +25,8 @@
     "eject": "react-scripts eject",
     "deploy-ghp": "npm run predeploy && gh-pages -d build"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@sentry/webpack-plugin": "^1.12.0"
+  }
 }
