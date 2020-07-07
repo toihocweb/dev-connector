@@ -54,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <ExampleFakechange />
+        <Example />
         <Router>
           <div className="App">
             <Navbar />
