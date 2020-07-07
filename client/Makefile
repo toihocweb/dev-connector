@@ -12,6 +12,6 @@ create_release:
 
 upload_sourcemaps: 
 	sentry-cli releases -o $(SENTRY_ORG) -p $(SENTRY_PROJECT) files $(REACT_APP_RELEASE_VERSION) \
-		upload-sourcemaps --url-prefix "~/static/js" --validate build/static/js
+		upload-sourcemaps --url-prefix "~/static/js" --validate build/static/js --rewrite
 associate_commits:
 	sentry-cli releases -o $(SENTRY_ORG) -p $(SENTRY_PROJECT) set-commits --auto $(REACT_APP_RELEASE_VERSION)
