@@ -16,12 +16,15 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
     integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
     crossorigin="anonymous"></script>
-  <script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js" crossorigin="anonymous"></script>
-
-  <script src="">
+  <!-- Import SDK -->
+  <!-- <script src="https://browser.sentry-cdn.com/5.19.1/bundle.min.js"
+    integrity="sha384-ibWewy8LWP0FdvEBD3iLjNmbFkkh/FKtOz8GR9C8ZBWjDTbjbdIDpa4nc/AasWns"
+    crossorigin="anonymous"></script> -->
+  <!-- Configure SDK -->
+  <script>
     Sentry.init({
-      dsn: 'cf65e3e57dd548a086a1631f6ba6467bf8d902042ce14503a77536192840ebee',
-      release: "%REACT_APP_RELEASE_VERSION%"
+      dsn:
+        "https://6d80a00786ab4170b56bc5ce2de621c2@o417587.ingest.sentry.io/5318266",
     });
   </script>
 

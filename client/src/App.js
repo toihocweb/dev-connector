@@ -54,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <Example /> */}
+        {/* <Example onClick={handleClick} /> */}
         <Router>
           <div className="App">
             <Navbar />
